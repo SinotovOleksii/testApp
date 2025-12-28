@@ -14,16 +14,13 @@ app.get("/api/hello", (req, res) => {
 
 
 
+const frontPath = path.resolve(__dirname, process.env.FRONT_PATH);
 
 
+app.use(express.static(frontPath));
 
-app.use(express.static(path.join(__dirname, "frontend/dist")));
-
-// app.get("/*", (_, res) => {
-//   res.sendFile(path.join(__dirname, "frontend/dist/index.html"));
-// });
 app.use((req, res) => {
-  res.sendFile(path.join(__dirname, "frontend/dist/index.html"));
+  res.sendFile(path.join(frontPath, "index.html"));
 });
 
 app.listen(3000, () => console.log("API on :3000"));

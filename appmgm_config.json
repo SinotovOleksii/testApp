@@ -1,6 +1,6 @@
 {
   "node_image": "node:22-alpine",
-  "packages": ["server", "frontend"],
+  "packages": ["backend", "frontend"],
   "env_file": ".env",
   "ports": [
         { "host": 8000, "container": 3000, "protocol": "tcp" }
@@ -8,13 +8,13 @@
   "network": "bridge",
   "volumes": [
     {
-      "host": "repo/server",
+      "host": "repo/backend",
       "container": "/app",
       "mode": "ro,Z"
     },
     {
       "host": "repo/frontend/dist",
-      "container": "/app/frontend/dist",
+      "container": "/app/public",
       "mode": "ro,Z"
     }
   ],
