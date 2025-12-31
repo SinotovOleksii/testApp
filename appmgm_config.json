@@ -18,6 +18,6 @@
       "mode": "ro,Z"
     }
   ],
-  "run_subdir": "api",
+  "run_subdir": "backend",
   "command": ["npm", "start"]
 }
