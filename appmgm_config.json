@@ -2,10 +2,12 @@
   "node_image": "node:22-alpine",
   "packages": ["backend", "frontend"],
   "env_file": ".env",
+
+  "network": "bridge",
   "ports": [
         { "host": 8000, "container": 3000, "protocol": "tcp" }
   ],
-  "network": "bridge",
+
   "volumes": [
     {
       "host": "repo/backend",
@@ -18,6 +20,19 @@
       "mode": "ro,Z"
     }
   ],
+
+  "resources": {
+    "memory": {
+      "max": "512M",
+      "high": "400M",
+      "swap": "0"
+    },
+    "cpu": {
+      "quota": "50%",
+      "shares": 1024
+    }
+  },
+
   "run_subdir": "",
   "command": ["npm", "start"]
 }
