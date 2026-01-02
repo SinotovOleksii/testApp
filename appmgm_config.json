@@ -23,13 +23,7 @@
 
   "resources": {
     "memory": {
-      "max": "512M",
-      "high": "400M",
-      "swap": "0"
-    },
-    "cpu": {
-      "quota": "50%",
-      "weight": 100
+      "max": "512M"
     }
   },
 
